@@ -24,7 +24,8 @@ How to build ARMS with Cordova
 	For details about the barcode scanner plugin, see https://github.com/phonegap/phonegap-plugin-barcodescanner
 
 5. Now we want to replace the default source files in the new Cordova project with the ARMS app source files.
-	In the new Cordova project directory, delete the folder 'www' and the file 'config.xml'. Now, from the 			'armsAppSourceFiles' folder, copy the 'www' folder and 'config.xml' file into the new project directory.
+	In the new Cordova project directory, delete the folder 'www' and the file 'config.xml'. Now, from the
+	'armsAppSourceFiles' folder, copy the 'www' folder and 'config.xml' file into the new project directory.
 
 6. If all dependencies are set up correctly, the project should be ready to run. Use the command:
 	'cordova run android'  ( see https://cordova.apache.org/#getstarted )
