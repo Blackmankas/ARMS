@@ -1,0 +1,89 @@
+<html>
+<head>
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+</head>
+<body>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="css/style.css">
+
+<div class="app">
+	<div class="navbar">
+        <div class="navbar-nav">
+            <ul class="navbar-left navbar-brand"><li><a class="navbar-brand">Company</a></li></ul>
+        </div>
+        <!--<div class="navbar-nav">
+		    <ul class="navbar-nav" >
+                <li><a><span style="width:25%;" class="icon glyphicon glyphicon-home"></span></a></li>
+            </ul>  Optional? 
+        </div> -->
+	</div>
+    <br /><br />
+    <div class="row">
+        <div class="col-xs-10 col-xs-offset-1"><input class="search-content" type="search"/><button class="search-button glyphicon glyphicon-search" /></div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-xs-10 col-xs-offset-1"><button onlick="app.scan()" class="barcode-content glyphicon glyphicon-barcode"></button></div>
+    </div>
+</div>
+<script src="js/index.js"></script>
+<script>
+var app = {
+    // Application Constructor
+    initialize: function() {
+        document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
+    },
+
+    // deviceready Event Handler
+    //
+    // Bind any cordova events here. Common events are:
+    // 'pause', 'resume', etc.
+    onDeviceReady: function() {
+        this.receivedEvent('deviceready');
+    },
+
+    // Update DOM on a Received Event
+    receivedEvent: function(id) {
+        var parentElement = document.getElementById(id);
+        var listeningElement = parentElement.querySelector('.listening');
+        var receivedElement = parentElement.querySelector('.received');
+
+        listeningElement.setAttribute('style', 'display:none;');
+        receivedElement.setAttribute('style', 'display:block;');
+
+        console.log('Received Event: ' + id);
+    },
+	
+	Scan: function() {
+		cordova.plugins.barcodeScanner.scan(
+			function (result) {
+				window.location.replace("item.html?barcode="+result.text);
+				//alert("We got a barcode\n" +
+						//"Result: " + result.text);
+			},
+			function (error) {
+				alert("Scanning failed: " + error);
+			},
+			{
+				//preferFrontCamera : true, // iOS and Android
+				showFlipCameraButton : true, // iOS and Android
+				showTorchButton : true, // iOS and Android
+				torchOn: false, // Android, launch with the torch switched on (if available)
+				prompt : "Place a barcode inside the scan area", // Android
+				resultDisplayDuration: 500, // Android, display scanned text for X ms. 0 suppresses it entirely, default 1500
+				//formats : "QR_CODE,PDF_417", // default: all but PDF_417 and RSS_EXPANDED
+				//orientation : "landscape", // Android only (portrait|landscape), default unset so it rotates with the device
+				disableAnimations : true, // iOS
+				disableSuccessBeep: false // iOS
+			}
+		);
+		document.getElementById("confirm").innerHTML = "Scanned";
+	}
+	
+};
+</script>
+</body>
+</html>
