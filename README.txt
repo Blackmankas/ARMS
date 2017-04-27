@@ -31,7 +31,7 @@ emulated phone. The application will automatically be installed. To access the n
 click and drag the mouse upwards from the bottom of the screen. From the list of available apps, find "ARMS"
 and click on it once.
 
-You will then be greeted by a login screen. For the sake of our demonstration, you may log in by leaving the email
+You will then be greeted by a login screen. For the sake of our demonstration, you may log in by leaving the username
 and password fields blank. To start using the Barcode Scanner, click on the image of the barcode. If Android
 asks for permission to use the camera, select "Allow." Because the emulator does not have any access to 
 physical camera hardware, you will not be able to directly scan a barcode. 
