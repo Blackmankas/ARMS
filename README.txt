@@ -47,5 +47,5 @@ physical camera hardware, you will not be able to directly scan a barcode.
 //TODO: Make a script to install the database
 //TODO: Populate the database with at least one item to scan
 
-NOTE: FUll database integration is still a work in progress, so as of right now, it is not functional enough for demonstration
+NOTE: FUll database integration is still a work in progress, so as of right now, it is not functional enough for demonstration.
 
