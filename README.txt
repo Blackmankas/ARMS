@@ -49,3 +49,7 @@ physical camera hardware, you will not be able to directly scan a barcode.
 
 NOTE: FUll database integration is still a work in progress, so as of right now, it is not functional enough for demonstration.
 
+-----------------------------------------------------------------------------
+Server Location: 54.183.143.176 
+Server Environment: Micro EC2 running LAMP stack
+Current Security: Limited to owner access only.
