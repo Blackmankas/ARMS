@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">RetailDatabase</string>
+    <string name="title_activity_detail_view">DetailView</string>
+    <string name="title_activity_list_view">ListView</string>
+</resources>
