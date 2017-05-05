@@ -17,7 +17,12 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:id="@+id/text_view_item"
         />
+    <android.support.design.widget.FloatingActionButton
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/fab"/>
 
 
 </android.support.constraint.ConstraintLayout>

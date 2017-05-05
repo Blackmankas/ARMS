@@ -3,14 +3,16 @@ package com.example.mightybee.retaildatabase.data;
 import android.provider.BaseColumns;
 
 /**
- * Created by mightybee on 5/4/17.
+ *  The purpose of a contract file is to allow the simple changing of table names, columns, and
+ *  predetermined values. This file is for the modification of the item table.
  */
 
 public final class ItemContract {
 
-    private ItemContract(){}
+    private ItemContract() {
+    }
 
-    public static class ItemLine implements BaseColumns{
+    public static class ItemLine implements BaseColumns {
         // Product name
         // Type: String
         public static final String TABLE_NAME = "product_listing";
@@ -34,14 +36,6 @@ public final class ItemContract {
         // Product stock status
         // Type: bool
         public static final String COLUMN_IN_STOCK = "in_stock";
-
-        // Possible values for stock status
-        public static final int IN_STOCK = 1;
-        public static final int NOT_IN_STOCK = 0;
-
-        // Possible values for sale status
-        public static final int ON_SALE = 1;
-        public static final int NOT_ON_SALE = 0;
 
 
     }
