@@ -16,7 +16,7 @@
         <!--<div class="navbar-nav">
 		    <ul class="navbar-nav" >
                 <li><a><span style="width:25%;" class="icon glyphicon glyphicon-home"></span></a></li>
-            </ul>  Optional? 
+            </ul>  Use this when in other pages to show the Home button 
         </div> -->
 	</div>
     <br /><br />
@@ -27,38 +27,11 @@
     </div>
     <br />
     <div class="row">
-        <div class="col-xs-10 col-xs-offset-1"><button onclick="app.Scan()" class="barcode-content glyphicon glyphicon-barcode"></button></div>
+        <div class="col-xs-10 col-xs-offset-1"><a href="scan.html"><button class="barcode-content glyphicon glyphicon-barcode"></button></a></div>
     </div>
 </div>
 <script type="text/javascript" src="cordova.js"></script>
 <script src="scripts.js"></script>
-<script>
 
-function search(){
-	window.location.replace("home.html?barcode="+document.getElementById("search").value);
-}
-
-	function getParameterByName(name, url) {
-    if (!url) url = window.location.href;
-    name = name.replace(/[\[\]]/g, "\\$&");
-    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
-        results = regex.exec(url);
-    if (!results) return null;
-    if (!results[2]) return '';
-    return decodeURIComponent(results[2].replace(/\+/g, " "));
-	}
-
-	if (getParameterByName('barcode')){
-		if (getParameterByName('barcode')!=1){
-			alert(getParameterByName('barcode') + " is not in the stock database \n" 
-			+ "Please direct this item to a manager");
-			window.location.replace("home.html");
-		}else{
-			alert("Item Found\n"
-			+ "Item id:" + getParameterByName('barcode') + "\n"
-			+ "Item Name: Bananas");
-		}
-	}
-</script>
 </body>
 </html>

@@ -1,0 +1,55 @@
+<html>
+<head>
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+</head>
+<body>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="style.css">
+
+<div class="app">
+	<div class="navbar">
+        <div class="navbar-nav">
+            <ul class="navbar-left navbar-brand"><li><a class="navbar-brand">Company</a></li></ul>
+        </div>
+        <div class="navbar-nav">
+		    <ul class="navbar-nav" >
+                <li><a href="home.html"><span style="width:25%;" class="icon glyphicon glyphicon-home"></span></a></li>
+            </ul>  
+        </div> 
+	</div>
+    <br /><br />
+    <div class="row">
+        <div class="col-xs-10 col-xs-offset-1">
+            <strong id="code"></strong>
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-xs-10 col-xs-offset-1"><button onclick="app.Scan()" style="line-height:200% !important" class="barcode-content">Scan To Inventory</button></div>
+        <div class="col-xs-10 col-xs-offset-1"><button onclick="app.Scan()" style="line-height:200% !important" class="barcode-content">Scan Out of Inventory</button></div>
+        <div class="col-xs-10 col-xs-offset-1"><button onclick="app.Scan()" style="line-height:200% !important" class="barcode-content">Get Item Info</button></div>
+    </div>
+</div>
+<script type="text/javascript" src="cordova.js"></script>
+<script src="scripts.js"></script>
+<script>
+	function getParameterByName(name, url) {
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
+	}
+    
+    if (getParameterByName('barcode')) {
+        document.getElementById("code").innerHTML = "Last Code Scanned:" + getParameterByName('barcode');
+    } else {
+        document.getElementById("code").innerHTML = "Scan Items by Selecting the Appropriate Button Below.";
+    }
+</script>
+</body>
+</html>
