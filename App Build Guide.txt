@@ -18,7 +18,7 @@ How to build ARMS with Cordova
 	You may also wish to add the browser platform for testing purposes.
 
 4. Add barcode scanner plugin as follows: Navigate to the project folder and run the following command, 
-	without quotes: 'cordova add phonegap-plugin-barcodescanner'
+	without quotes: 'cordova plugin add phonegap-plugin-barcodescanner'
 
 	For more details about adding plugins, see https://cordova.apache.org/docs/en/latest/guide/cli/#add-plugins
 	For details about the barcode scanner plugin, see https://github.com/phonegap/phonegap-plugin-barcodescanner
