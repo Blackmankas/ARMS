@@ -1,5 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+
 <resources>
-    <string name="app_name">RetailDatabase</string>
-    <string name="title_activity_detail_view">DetailView</string>
-    <string name="title_activity_list_view">ListView</string>
+    <!-- Name for the application [CHAR LIMIT=12] -->
+    <string name="app_name">Retail Item Database</string>
+
+    <!-- Label for overflow menu_catalog option that inserts fake item data into the app [CHAR LIMIT=20] -->
+    <string name="action_insert_dummy_data">Insert Dummy Data</string>
+
+    <!-- Label for overflow menu_catalog option that deletes all item data in the app [CHAR LIMIT=20] -->
+    <string name="action_delete_all_entries">Delete All Items</string>
+
+    <!-- Title for the activity to add a new item [CHAR LIMIT=20] -->
+    <string name="editor_activity_title_new_item">Add an Item</string>
+
+    <!-- Label for editor menu_catalog option to save/leave editor [CHAR LIMIT=20] -->
+    <string name="action_save">Save</string>
+
+    <!-- Label for editor overflow menu_catalog option that deletes the current item [CHAR LIMIT=20] -->
+    <string name="action_delete">Delete</string>
+
+    <!-- Label for overview category of attributes in the editor [CHAR LIMIT=30] -->
+    <string name="category_overview">Overview</string>
+
+    <!-- Label for gender information in the editor [CHAR LIMIT=30] -->
+    <string name="category_stock">Stock</string>
+
+    <!-- Label for sale information -->
+    <string name="category_sale">Sale</string>
+
+    <!-- Label for measurement information in the editor [CHAR LIMIT=30] -->
+    <string name="container_sale">Sale</string>
+
+    <!-- Text hint for name field in the editor [CHAR LIMIT=30] -->
+    <string name="hint_item_name">Name</string>
+
+    <!-- Text hint for breed field in the editor [CHAR LIMIT=30] -->
+    <string name="hint_item_id">SKU #</string>
+
+    <!-- Text hint for name field in the editor [CHAR LIMIT=30] -->
+    <string name="hint_item_cost">Retail Cost</string>
+
+    <!-- Units for sale status of the item -->
+    <string name="sale_status">Sale</string>
+
+    <!-- Label for dropdown menu_catalog option if the item is in stock[CHAR LIMIT=20] -->
+    <string name="IN_STOCK">In Stock</string>
+
+    <!-- Label for dropdown menu_catalog option if the item is not in stock [CHAR LIMIT=20] -->
+    <string name="NOT_IN_STOCK">Not In Stock</string>
+
+    <!-- Label for dropdown menu_catalog option if the item is unknown[CHAR LIMIT=20] -->
+    <string name="STOCK_UNKNOWN">Unknown Stock Status</string>
+
+    <!-- Labe for detail view title -->
+    <string name="title_activity_detail_view">Details</string>
+
+    <!-- Lablel for list view title -->
+    <string name="title_activity_list_view">Store Inventory</string>
 </resources>

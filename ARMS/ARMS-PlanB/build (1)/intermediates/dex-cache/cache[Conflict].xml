@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="C:\Users\alfar\Google Drive\School\SoftwareDevelopment\ARMS\ARMS\ARMS-PlanB\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="510aa6efc159983dfbffa676a0dae37568c0a46f">
+        <dex dex="C:\Users\alfar\Google Drive\School\SoftwareDevelopment\ARMS\ARMS\ARMS-PlanB\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_58309297e31dc0007f7c0f78786d2d2888e8aa21\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\alfar\Google Drive\School\SoftwareDevelopment\ARMS\ARMS\ARMS-PlanB\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="3a4623f0ec0f2a7bb17da2aba25a2ea833a68933">
+        <dex dex="C:\Users\alfar\Google Drive\School\SoftwareDevelopment\ARMS\ARMS\ARMS-PlanB\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_cb86357b39b2672f560943e2a324008753349c0d\classes.dex" />
+    </item>
+
+</items>
