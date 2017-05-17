@@ -1,7 +1,7 @@
 <?php
 header('Content-Type: application/json');
 
-$link = mysqli_connect("127.0.0.1", "root", "", "DBNAME");  //change this to work with the local database -- IP, username, password, database name
+$link = mysqli_connect("127.0.0.1", "root", "", "A.R.M.S");  //change this to work with the local database -- IP, username, password, database name
 
 if (!$link) {
     echo "Error: Unable to connect to MySQL." . PHP_EOL;

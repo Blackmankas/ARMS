@@ -27,21 +27,29 @@
         </div>
         <br /><br />
         <div class="row">
-            <div class="col-xs-10 col-xs-offset-1">
-                <strong id="code"></strong>
+            <div class="col-xs-4 col-xs-offset-1">
+                <img src="testImage.png" alt="Temporary Photo" height="100px" width="100px" style="border:2px solid black">
             </div>
+			<div class="col-xs-7">
+			<p>Name</p>
+			<input id="productName" type="text" size="15"></input>
+			<br><br>
+			<p id="productID">0000000000000</p>
+			</div>
         </div>
         <br />
         <div class="row">
-            <div class="col-xs-10 col-xs-offset-1"><button onclick="app.Scan()" style="line-height:200% !important" class="barcode-content">Scan To Inventory</button></div>
-        </div>
-		<br />
-		<div class="row">
-			<div class="col-xs-10 col-xs-offset-1"><button onclick="app.Scan()" style="line-height:200% !important" class="barcode-content">Scan Out of Inventory</button></div>
-        </div>
-		<br />
-		<div class="row">
-			<div class="col-xs-10 col-xs-offset-1"><button onclick="app.Scan()" style="line-height:200% !important" class="barcode-content">Get Item Info</button></div>
+			<div class="col-xs-10 col-xs-offset-1">
+				<p>Product price:  <input id="productPrice" type="number" /></p>
+			</div>
+			<br><br>
+			<div class="col-xs-10 col-xs-offset-1">
+				<p>Product count:  <input id="inventoryCount" type="number" /></p>
+			</div>
+			<br><br>
+			<div class="col-xs-10 col-xs-offset-1">
+				<p>Aisle Location:  <input id="inventoryCount" type="number" /></p>
+			</div>
         </div>
     </div>
     <script type="text/javascript" src="cordova.js"></script>
