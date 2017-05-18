@@ -1,38 +1,43 @@
-How to build ARMS with Cordova
-------------------------------
+How to build the ARMS app
+-------------------------
+For practical usage as an retail management system, ARMS will be run on an Android mobile device.
+For ease of testing, ARMS can be deployed in a browser window with identical functionality, or to
+an Android emulator. This guide will give instructions in building for both a browser and for the 
+Android platform.
 
-1. Install Cordova ( see https://cordova.apache.org/#getstarted )
+1. Install Node.js ( https://nodejs.org/en/ )
 
-2. Install prerequisites for Android development with Cordova
-	(see https://cordova.apache.org/docs/en/latest/guide/platforms/android/index.html)
+2. Install Cordova ( see https://cordova.apache.org/#getstarted )
 
-	Getting the Android development tools working with Cordova was problematic in my experience.
-	After installing Android Studio, the problems I ran into involved Cordova looking in the wrong 
-	places for the gradle wrapper and for the Android build tools. You will see these errors when
-	you try to build the program. Cordova will tell you what it cannot find and where it is looking.
-	You may be able to resolve these issues by changing the ANDROID_HOME environment variable or by 
-	copying the correct directories to the location that Cordova is searching. Google and Stackoverflow
-	and such will likely help you out if you have problems with this. I was using Windows 7, for reference.
-
-3. Create a new Cordova project and add the Android platform ( https://cordova.apache.org/#getstarted )
-	You may also wish to add the browser platform for testing purposes.
-
-4. Add barcode scanner plugin as follows: Navigate to the project folder and run the following command, 
+3. (If building for Android) Install prerequisites for Android development with Cordova, including 
+	the Java Development Kit and Android Studio, according to the instructions given here:
+	https://cordova.apache.org/docs/en/latest/guide/platforms/android/index.html)
+	
+4. If you want to deploy to an Android Emulator, you will need to set up a virtual device using Android Studio.
+	To create a virtual device, follow the directions here: 
+	https://developer.android.com/studio/run/managing-avds.html
+	
+5. Create a new Cordova project and add either the browser platform, the Android platform, or both,
+	depending on your needs ( https://cordova.apache.org/#getstarted )
+	
+6. Add barcode scanner plugin as follows: Navigate to the project folder and run the following command, 
 	without quotes: 'cordova plugin add phonegap-plugin-barcodescanner'
 
 	For more details about adding plugins, see https://cordova.apache.org/docs/en/latest/guide/cli/#add-plugins
 	For details about the barcode scanner plugin, see https://github.com/phonegap/phonegap-plugin-barcodescanner
 
-5. Now we want to replace the default source files in the new Cordova project with the ARMS app source files.
+7. Now we want to replace the default source files in the new Cordova project with the ARMS app source files.
 	In the new Cordova project directory, delete the folder 'www' and the file 'config.xml'. Now, from the
 	ARMS source folder, copy the 'www' folder and 'config.xml' file into the new project directory.
 
-6. If all dependencies are set up correctly, the project should be ready to run. Use the command:
-	'cordova run android'  ( see https://cordova.apache.org/#getstarted )
-	If all is well, Cordova will build the app, and if you have an Android emulator set up, it will try
-	to use it to run the app immediately.
+8. If all dependencies are set up correctly, the project should be ready to run. Use the command:
+	'cordova run android' or 'cordova run browser'  ( see https://cordova.apache.org/#getstarted )
+	If all is well, Cordova will build the app. If you are building for browser, the app will run 
+	immediately. If you are building for Android and have an Android emulator set up, Cordova will
+	deploy the app to run on the emulator.
 
-	An apk file will be generated. You can find it in '<project_directory>\platforms\android\build\outputs\apk'
+	If building for Android, an apk file will be generated, which can be used to install the app on an Android 
+	device. You can find it in '<project_directory>\platforms\android\build\outputs\apk'
 
-7. The entire build is accomplished with the 'cordova run android' command, so a build script is trivial. Create
-	a script/batch file with contents 'cordova run android' and save it to the root of the project directory.
+9. The entire build is accomplished with the 'cordova run android' (or browser) command, so a "build script" is trivial.
+	Create a script/batch file with contents 'cordova run android' and save it to the root of the project directory.
