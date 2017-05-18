@@ -134,9 +134,9 @@ public class ListView extends AppCompatActivity {
         // Create a ContentValues object where column names are the keys,
         // and Toto's pet attributes are the values.
         ContentValues values = new ContentValues();
-        values.put(ItemLine.COLUMN_PRODUCT_ID, 001);
+        values.put(ItemLine.COLUMN_PRODUCT_ID, 1);
         values.put(ItemLine.COLUMN_PRODUCT_NAME, "Toto");
-        values.put(ItemLine.COLUMN_IN_STOCK, ItemLine.COLUMN_IN_STOCK);
+        values.put(ItemLine.COLUMN_IN_STOCK, "True");
         values.put(ItemLine.COLUMN_ON_SALE, "True");
         values.put(ItemLine.COLUMN_RETAIL_COST,"34.99");
 
