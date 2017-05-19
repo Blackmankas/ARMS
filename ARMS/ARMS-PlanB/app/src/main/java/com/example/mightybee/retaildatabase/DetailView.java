@@ -21,7 +21,7 @@ import com.example.mightybee.retaildatabase.data.ItemDBHelper;
 
 public class DetailView extends AppCompatActivity {
 
-    public boolean stockStatus;
+    public int stockStatus;
     // Edit field to enter the item name
     private EditText mProductNameEditText;
     // Edit field to enter the productID
@@ -73,13 +73,13 @@ public class DetailView extends AppCompatActivity {
                 if (!TextUtils.isEmpty(selection)) {
                     if (selection.equals(getString(R.string.IN_STOCK))) {
                         mStock = ItemContract.ItemLine.IN_STOCK;
-                        stockStatus = true;
+                        stockStatus = 1;
                     } else if (selection.equals(getString(R.string.NOT_IN_STOCK))) {
                         mStock = ItemContract.ItemLine.NOT_IN_STOCK;
-                        stockStatus = false;
+                        stockStatus = 0;
                     } else {
                         mStock = ItemContract.ItemLine.STOCK_UNKNOWN;
-                        stockStatus = false;
+                        stockStatus = 0;
                     }
                 }
             }
@@ -100,7 +100,7 @@ public class DetailView extends AppCompatActivity {
         String productIDString = mProductIDEditText.getText().toString().trim();
         String productCostString = mProductRetailCostEditText.getText().toString().trim();
         boolean onSaleStatus = mProductOnSaleCheckbox.isChecked();
-        boolean stockString = stockStatus;
+        int stockString = stockStatus;
 
 
         // Setup db helper
