@@ -33,14 +33,14 @@ public class ItemDBHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         // Create a string that contains the SQL statement to create the inventory table
         String SQL_CREATE_INVENTORY_TABLE = "CREATE TABLE " + ItemLine.TABLE_NAME
-                + " (" + ItemLine._ID + " INTEGER PRIMARY KEY,"
-                + ItemLine.COLUMN_PRODUCT_ID + " INTEGER UNIQUE,"
-                + ItemLine.COLUMN_PRODUCT_NAME + " TEXT NOT NULL,"
-                + ItemLine.COLUMN_IN_STOCK + " BOOL DEFAULT 1,"
-                + ItemLine.COLUMN_ON_SALE + "BOOL DEFAULT 0,"
-                + ItemLine.COLUMN_RETAIL_COST + "INT NOT NULL);";
+                + " (" + ItemLine._ID + " TEXT PRIMARY KEY AUTOINCREMENT,"
+                + ItemLine.COLUMN_PRODUCT_ID + " TEXT UNIQUE NOT NULL,"
+                + ItemLine.COLUMN_PRODUCT_NAME + " TEXT NOT NULL, "
+                + ItemLine.COLUMN_ON_SALE + " BOOL DEFAULT 0, "
+                + ItemLine.COLUMN_IN_STOCK + " BOOL DEFAULT 1, "
+                + ItemLine.COLUMN_RETAIL_COST + "INTEGER NOT NULL);";
 
-        // Execute the SQL statement
+        // Execute the SQL statement100
         db.execSQL(SQL_CREATE_INVENTORY_TABLE);
     }
 

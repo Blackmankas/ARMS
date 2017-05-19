@@ -99,6 +99,7 @@ public class DetailView extends AppCompatActivity {
         String productIDString = mProductIDEditText.getText().toString().trim();
         String productCostString = mProductRetailCostEditText.getText().toString().trim();
         boolean onSaleStatus = mProductOnSaleCheckbox.isChecked();
+        String stockString = mProductStockSpinner.toString();
 
 
         // Setup db helper
@@ -113,8 +114,8 @@ public class DetailView extends AppCompatActivity {
         values.put(ItemContract.ItemLine.COLUMN_PRODUCT_NAME, nameString);
         values.put(ItemContract.ItemLine.COLUMN_PRODUCT_ID, productIDString);
         values.put(ItemContract.ItemLine.COLUMN_RETAIL_COST, productCostString);
-        values.put(ItemContract.ItemLine.COLUMN_IN_STOCK, onSaleStatus);
-        values.put(ItemContract.ItemLine.COLUMN_ON_SALE, mStock);
+        values.put(ItemContract.ItemLine.COLUMN_IN_STOCK, stockString);
+        values.put(ItemContract.ItemLine.COLUMN_ON_SALE, onSaleStatus);
 
         // Insert a new row for this item, return the ID of that new row
         long newRowID = db.insert(ItemContract.ItemLine.TABLE_NAME, null, values);

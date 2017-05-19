@@ -1,13 +1,14 @@
 package com.example.mightybee.retaildatabase;
 
-import android.content.ClipData;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
+import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -22,7 +23,11 @@ import com.example.mightybee.retaildatabase.data.ItemDBHelper;
 
 public class ListView extends AppCompatActivity {
 
-    /** Database helper that will provide us access to the database */
+    private static final String TAG = "ListView";
+
+    /**
+     * Database helper that will provide us access to the database
+     */
     private ItemDBHelper mDbHelper;
 
     @Override
@@ -48,7 +53,39 @@ public class ListView extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        displayDatabaseInfo();
+//        displayDatabaseInfo();
+        readAllItems();
+    }
+
+    private void readAllItems() {
+
+        SQLiteDatabase db = mDbHelper.getReadableDatabase();
+
+        String selectQuery = "SELECT  * FROM " + ItemLine.TABLE_NAME;
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        Log.e(TAG, "readAllItems: " + DatabaseUtils.dumpCursorToString(cursor));
+
+        if (cursor.moveToFirst()) {
+            do {
+                int idColumnIndex = cursor.getColumnIndex(ItemLine._ID);
+                int nameColumnIndex = cursor.getColumnIndex(ItemLine.COLUMN_PRODUCT_NAME);
+                int stockColumnIndex = cursor.getColumnIndex(ItemLine.COLUMN_IN_STOCK);
+                int saleColumnIndex = cursor.getColumnIndex(ItemLine.COLUMN_ON_SALE);
+
+                int currentID = cursor.getInt(idColumnIndex);
+                String currentName = cursor.getString(nameColumnIndex);
+                String currentSale = cursor.getString(saleColumnIndex);
+                int currentStock = cursor.getInt(stockColumnIndex);
+
+                Log.e(TAG, "readAllItems: " +
+                        currentID + " " +
+                        currentName + " " +
+                        currentSale + " " +
+                        currentStock);
+
+            } while (cursor.moveToNext());
+        }
     }
 
     /**
@@ -78,6 +115,8 @@ public class ListView extends AppCompatActivity {
                 null,                  // Don't filter by row groups
                 null);                   // The sort order
 
+        Log.e(TAG, "displayDatabaseInfo: " + DatabaseUtils.dumpCursorToString(cursor));
+
         TextView displayView = (TextView) findViewById(R.id.text_view_item);
 
         try {
@@ -90,10 +129,10 @@ public class ListView extends AppCompatActivity {
             // the information from each column in this order.
             displayView.setText("The item table contains " + cursor.getCount() + " items.\n\n");
             displayView.append(ItemLine._ID + " - " +
-                    ItemLine.COLUMN_PRODUCT_ID+ " - " +
-                    ItemLine.COLUMN_PRODUCT_NAME+ " - " +
-                    ItemLine.COLUMN_ON_SALE+ " - " +
-                    ItemLine.COLUMN_RETAIL_COST+ "-" +
+                    ItemLine.COLUMN_PRODUCT_ID + " - " +
+                    ItemLine.COLUMN_PRODUCT_NAME + " - " +
+                    ItemLine.COLUMN_ON_SALE + " - " +
+                    ItemLine.COLUMN_RETAIL_COST + "-" +
                     ItemLine.COLUMN_IN_STOCK + "\n");
 
             // Figure out the index of each column
@@ -102,6 +141,12 @@ public class ListView extends AppCompatActivity {
             int saleColumnIndex = cursor.getColumnIndex(ItemLine.COLUMN_ON_SALE);
             int stockColumnIndex = cursor.getColumnIndex(ItemLine.COLUMN_IN_STOCK);
 
+            Log.e("ListView", "displayDatabaseInfo: " +
+                    idColumnIndex + " " +
+                    nameColumnIndex + " " +
+                    saleColumnIndex + " " +
+                    stockColumnIndex);
+
             // Iterate through all the returned rows in the cursor
             while (cursor.moveToNext()) {
                 // Use that index to extract the String or Int value of the word
@@ -109,12 +154,12 @@ public class ListView extends AppCompatActivity {
                 int currentID = cursor.getInt(idColumnIndex);
                 String currentName = cursor.getString(nameColumnIndex);
                 String currentSale = cursor.getString(saleColumnIndex);
-                int currentStock= cursor.getInt(stockColumnIndex);
+                int currentStock = cursor.getInt(stockColumnIndex);
                 // Display the values from each column of the current row in the cursor in the TextView
                 displayView.append(("\n" + currentID + " - " +
                         currentName + " - " +
                         currentSale + " - " +
-                        currentStock+ " - " +
+                        currentStock + " - " +
                         currentID));
             }
         } finally {
@@ -138,7 +183,7 @@ public class ListView extends AppCompatActivity {
         values.put(ItemLine.COLUMN_PRODUCT_NAME, "Toto");
         values.put(ItemLine.COLUMN_IN_STOCK, "True");
         values.put(ItemLine.COLUMN_ON_SALE, "True");
-        values.put(ItemLine.COLUMN_RETAIL_COST,"34.99");
+        values.put(ItemLine.COLUMN_RETAIL_COST, "34.99");
 
         // Insert a new row for Toto in the database, returning the ID of that new row.
         // The first argument for db.insert() is the pets table name.
