@@ -12,7 +12,6 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.TextView;
 
 import com.example.mightybee.retaildatabase.data.ItemContract.ItemLine;
 import com.example.mightybee.retaildatabase.data.ItemDBHelper;
@@ -92,6 +91,7 @@ public class ListView extends AppCompatActivity {
      * Temporary helper method to display information in the onscreen TextView about the state of
      * the pets database.
      */
+    /*
     private void displayDatabaseInfo() {
         // Create and/or open a database to read from it
         SQLiteDatabase db = mDbHelper.getReadableDatabase();
@@ -175,14 +175,15 @@ public class ListView extends AppCompatActivity {
     private void insertItem() {
         // Gets the database in write mode
         SQLiteDatabase db = mDbHelper.getWritableDatabase();
+        int i = 1;
 
         // Create a ContentValues object where column names are the keys,
         // and Toto's pet attributes are the values.
         ContentValues values = new ContentValues();
-        values.put(ItemLine.COLUMN_PRODUCT_ID, 1);
+        values.put(ItemLine.COLUMN_PRODUCT_ID, i++);
         values.put(ItemLine.COLUMN_PRODUCT_NAME, "Toto");
-        values.put(ItemLine.COLUMN_IN_STOCK, "True");
-        values.put(ItemLine.COLUMN_ON_SALE, "True");
+        values.put(ItemLine.COLUMN_IN_STOCK, true);
+        values.put(ItemLine.COLUMN_ON_SALE, true);
         values.put(ItemLine.COLUMN_RETAIL_COST, "34.99");
 
         // Insert a new row for Toto in the database, returning the ID of that new row.
@@ -210,7 +211,7 @@ public class ListView extends AppCompatActivity {
             // Respond to a click on the "Insert dummy data" menu_catalog option
             case R.id.action_insert_dummy_data:
                 insertItem();
-                displayDatabaseInfo();
+                readAllItems();
                 return true;
             // Respond to a click on the "Delete all entries" menu_catalog option
             case R.id.action_delete_all_entries:
