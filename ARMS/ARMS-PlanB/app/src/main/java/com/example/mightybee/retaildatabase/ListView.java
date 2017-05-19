@@ -23,7 +23,8 @@ import com.example.mightybee.retaildatabase.data.ItemDBHelper;
 public class ListView extends AppCompatActivity {
 
     private static final String TAG = "ListView";
-
+    // Iterator for _ID
+    int i = 1;
     /**
      * Database helper that will provide us access to the database
      */
@@ -169,13 +170,12 @@ public class ListView extends AppCompatActivity {
         }
     }
 
-    /**
-     * Helper method to insert hardcoded pet data into the database. For debugging purposes only.
-     */
+   */
+
     private void insertItem() {
         // Gets the database in write mode
         SQLiteDatabase db = mDbHelper.getWritableDatabase();
-        int i = 1;
+
 
         // Create a ContentValues object where column names are the keys,
         // and Toto's pet attributes are the values.
