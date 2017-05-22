@@ -5,7 +5,7 @@ var app = {
 		
 			// This code runs if the scan succeeds
 			function (result) {
-				window.location.replace("http://ec2-54-215-188-203.us-west-1.compute.amazonaws.com/scanner.php?UPC="+result.text);
+				window.location.replace("http://ec2-54-215-188-203.us-west-1.compute.amazonaws.com/scanner.php?UPC="+result.text+"&refer=scan");
 			},
 			
 			// This code runs if the scan fails

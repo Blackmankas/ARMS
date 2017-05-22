@@ -75,3 +75,19 @@ ul{
 	color: #cc4545;
 	border: 1px;
 }
+
+.submit-button{
+	background-color: #cc4545 !important;
+	text-align: center;
+	color: white;
+	line-height:300%;
+	border-radius: 5px;
+	border: transparent;
+	
+}
+
+.submit-button:hover{
+	background-color: transparent !important;
+	color: #cc4545;
+	border: 1px;
+}

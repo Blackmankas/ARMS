@@ -29,30 +29,8 @@
 <script src="scripts.js"></script>
 <script>
 function search(){
-	window.location.replace("home.html?barcode="+document.getElementById("search").value);
+	window.location.replace("http://ec2-54-215-188-203.us-west-1.compute.amazonaws.com/scanner.php?search="+document.getElementById("search").value+"&refer=search");
 }
-
-	function getParameterByName(name, url) {
-    if (!url) url = window.location.href;
-    name = name.replace(/[\[\]]/g, "\\$&");
-    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
-        results = regex.exec(url);
-    if (!results) return null;
-    if (!results[2]) return '';
-    return decodeURIComponent(results[2].replace(/\+/g, " "));
-	}
-
-	if (getParameterByName('barcode')){
-		if (getParameterByName('barcode')!=1){
-			alert(getParameterByName('barcode') + " is not in the stock database \n" 
-			+ "Please direct this item to a manager");
-			window.location.replace("home.html");
-		}else{
-			alert("Item Found\n"
-			+ "Item id:" + getParameterByName('barcode') + "\n"
-			+ "Item Name: Bananas");
-		}
-	}
 </script>
 </body>
 </html>

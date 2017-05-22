@@ -1,7 +1,9 @@
 <?php
-header('Content-Type: application/json');
+error_reporting(E_ALL);
+ini_set('display_errors', 'on');
 
-$link = mysqli_connect("127.0.0.1", "root", "", "A.R.M.S");  //change this to work with the local database -- IP, username, password, database name
+
+$link = mysqli_connect("localhost", "root", "", "A.R.M.S");  //change this to work with the local database -- IP, username, password, database name
 
 if (!$link) {
     echo "Error: Unable to connect to MySQL." . PHP_EOL;
@@ -10,18 +12,35 @@ if (!$link) {
     exit;
 }
 
-//get UPC code from app, insert into sql statement
-$sql = "SELECT * from Product WHERE productSKU = $_GET['UPC']";
+$refer = $_GET["refer"];
+$error = isset($_GET["Error"]) ? $_GET["Error"] : '';
 
-//encode as .json
+if ($refer == 'scan'){
+	$upc = $_GET["UPC"];
+	$sql = "select * from ScannerLookup WHERE productID = $upc";
+}else{
+	$search = $_GET["search"];
+	$sql = "select * from ScannerLookup WHERE productName = '$search'";
+}
+
+
 $result = mysqli_query($link, $sql);
-$rows = array();
-	while($r = mysql_fetch_assoc($result)){
-		$rows['productSKU'][] = $r;
+if (!$result) {
+    echo "Error finding UPC: " . mysqli_error($link);
+}else{
+	foreach($result as $row)
+	{
+		$upc = $row['productID'];
+		$productName = $row['productName'];
+		$productPrice = $row['productPrice'];
+		$aisleLocation = $row['aisleLocation'];
+		$invetoryCount = $row['inventoryCount'];
 	}
-	
-	
-	
-echo json_encode($rows);
+	header("Location: http://localhost:8000/item.html?upc=".$upc."&productName=".$productName."&productPrice=".$productPrice."&aisleLocation=".$aisleLocation."&inventoryCount=".$invetoryCount."&Error=".$error);
+	exit();
+}
+
+
+
 
 ?>
