@@ -2,6 +2,7 @@ ARMS App Build Guide
 
 Cordova for Android documentation: https://cordova.apache.org/docs/en/latest/guide/platforms/android/
 
+0.	Extract the project directory, ARMS.zip, to a location of your choosing
 1.	Install Node.js
 	a.	Go to https://nodejs.org/en/ and download installer (v6.10.3 LTS)
 	b.	Run installer with default options
