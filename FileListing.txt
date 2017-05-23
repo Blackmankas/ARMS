@@ -1,0 +1,6 @@
+File Name       Lines of Code
+index.html      41
+item.html       98
+scanner.php     46
+updater.php	93
+style.css       41
