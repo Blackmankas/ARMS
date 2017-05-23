@@ -36,7 +36,7 @@ if (!$result) {
 		$aisleLocation = $row['aisleLocation'];
 		$invetoryCount = $row['inventoryCount'];
 	}
-	header("Location: http://localhost:8000/item.html?upc=".$upc."&productName=".$productName."&productPrice=".$productPrice."&aisleLocation=".$aisleLocation."&inventoryCount=".$invetoryCount."&Error=".$error);
+	header("Location: ../item.html?upc=".$upc."&productName=".$productName."&productPrice=".$productPrice."&aisleLocation=".$aisleLocation."&inventoryCount=".$invetoryCount."&Error=".$error);
 	exit();
 }
 

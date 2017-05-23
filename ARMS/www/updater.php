@@ -27,11 +27,11 @@ $sql = "UPDATE ScannerLookup
 
 if (!mysqli_query($link, $sql)) {
 	//Error happened
-	header("Location: http://ec2-54-215-188-203.us-west-1.compute.amazonaws.com/scanner.php?UPC=".$productID."&Error=1");
+	header("Location: ../scanner.php?UPC=".$productID."&Error=1");
 	exit();
 }else{
 	//Get the new info and go back to the item page
-	header("Location: http://ec2-54-215-188-203.us-west-1.compute.amazonaws.com/scanner.php?UPC=".$productID."&refer=scan&Error=0");
+	header("Location: ../scanner.php?UPC=".$productID."&refer=scan&Error=0");
 	exit();
 }
 }

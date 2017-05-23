@@ -22,14 +22,19 @@
     </div>
     <br />
     <div class="row">
-        <div class="col-xs-10 col-xs-offset-1"><a onclick="app.Scan()"><button class="barcode-content glyphicon glyphicon-barcode"></button></a></div>
+        <div class="col-xs-10 col-xs-offset-1"><a onclick="scan()"><button class="barcode-content glyphicon glyphicon-barcode"></button></a></div>
     </div>
 </div>
+<!---
 <script type="text/javascript" src="cordova.js"></script>
-<script src="scripts.js"></script>
+<script src="scripts.js"></script> --->
 <script>
 function search(){
-	window.location.replace("http://ec2-54-215-188-203.us-west-1.compute.amazonaws.com/scanner.php?search="+document.getElementById("search").value+"&refer=search");
+	window.location.replace("../scanner.php?search="+document.getElementById("search").value+"&refer=search");
+}
+function scan(){
+	var upc = prompt("Please Enter the Barcode:");
+	window.location.replace("../scanner.php?UPC="+upc+"&refer=scan");
 }
 </script>
 </body>

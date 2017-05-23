@@ -90,7 +90,7 @@
 			}else{
 				var error = getParameterByName('Error');
 			}
-			window.location = "http://ec2-54-215-188-203.us-west-1.compute.amazonaws.com/updater.php?productID="+productID+"&productName="+productName+"&productPrice="+productPrice+"&aisleLocation="+aisleLocation+"&inventoryCount="+inventoryCount+"&Error="+error;
+			window.open("../updater.php?productID="+productID+"&productName="+productName+"&productPrice="+productPrice+"&aisleLocation="+aisleLocation+"&inventoryCount="+inventoryCount+"&Error="+error);
 		}
     </script>
 </body>
