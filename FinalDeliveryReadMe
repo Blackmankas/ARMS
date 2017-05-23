@@ -1,0 +1,24 @@
+README
+------
+
+Included in this package:
+1. ARMS App Project Folder (ARMS.zip)
+2. ARMS App Development Environment and Build Guide
+3. Use Case Walkthrough
+4. Testing Documentation
+
+1. ARMS App Project Folder (ARMS.zip)
+--------------------
+This is the compressed project directory. Extract it to a location of your choice.
+
+2. ARMS App Development Environment and Build Guide
+---------------------------------------------------------
+Follow the instructions in this guide to install the necessary dependencies and to
+build ARMS.
+
+3. Use Case Walkthrough
+-----------------------
+Follow the instructions in this guide for an example of how the ARMS app is used.
+
+4. Testing Documentation
+------------------------
