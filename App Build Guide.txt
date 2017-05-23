@@ -1,43 +1,46 @@
-How to build the ARMS app
--------------------------
-For practical usage as an retail management system, ARMS will be run on an Android mobile device.
-For ease of testing, ARMS can be deployed in a browser window with identical functionality, or to
-an Android emulator. This guide will give instructions in building for both a browser and for the 
-Android platform.
+ARMS App Build Guide
 
-1. Install Node.js ( https://nodejs.org/en/ )
+Cordova for Android documentation: https://cordova.apache.org/docs/en/latest/guide/platforms/android/
 
-2. Install Cordova ( see https://cordova.apache.org/#getstarted )
-
-3. (If building for Android) Install prerequisites for Android development with Cordova, including 
-	the Java Development Kit and Android Studio, according to the instructions given here:
-	https://cordova.apache.org/docs/en/latest/guide/platforms/android/index.html)
-	
-4. If you want to deploy to an Android Emulator, you will need to set up a virtual device using Android Studio.
-	To create a virtual device, follow the directions here: 
-	https://developer.android.com/studio/run/managing-avds.html
-	
-5. Create a new Cordova project and add either the browser platform, the Android platform, or both,
-	depending on your needs ( https://cordova.apache.org/#getstarted )
-	
-6. Add barcode scanner plugin as follows: Navigate to the project folder and run the following command, 
-	without quotes: 'cordova plugin add phonegap-plugin-barcodescanner'
-
-	For more details about adding plugins, see https://cordova.apache.org/docs/en/latest/guide/cli/#add-plugins
-	For details about the barcode scanner plugin, see https://github.com/phonegap/phonegap-plugin-barcodescanner
-
-7. Now we want to replace the default source files in the new Cordova project with the ARMS app source files.
-	In the new Cordova project directory, delete the folder 'www' and the file 'config.xml'. Now, from the
-	ARMS source folder, copy the 'www' folder and 'config.xml' file into the new project directory.
-
-8. If all dependencies are set up correctly, the project should be ready to run. Use the command:
-	'cordova run android' or 'cordova run browser'  ( see https://cordova.apache.org/#getstarted )
-	If all is well, Cordova will build the app. If you are building for browser, the app will run 
-	immediately. If you are building for Android and have an Android emulator set up, Cordova will
-	deploy the app to run on the emulator.
-
-	If building for Android, an apk file will be generated, which can be used to install the app on an Android 
-	device. You can find it in '<project_directory>\platforms\android\build\outputs\apk'
-
-9. The entire build is accomplished with the 'cordova run android' (or browser) command, so a "build script" is trivial.
-	Create a script/batch file with contents 'cordova run android' and save it to the root of the project directory.
+1.	Install Node.js
+	a.	Go to https://nodejs.org/en/ and download installer (v6.10.3 LTS)
+	b.	Run installer with default options
+2.	Install Cordova
+	a.	Open up a command line
+	b.	Run command “npm install -g cordova”
+3.	Test project in browser
+	a.	Open up a command line
+	b.	Navigate to the ARMS project directory
+	c.	Run command “cordova run browser”
+	d.	The app should open in a browser window. Click the scanner button and try entering an item, and 
+		then click submit. Then click the home icon in the top right to return to the home screen. 
+		Enter a value in the search bar and click the search button. You can then enter/modify 
+		product information. The purpose for this is to ensure that the proceeding steps are 
+		working correctly. In the command line window, you should see a lot of green 200 and 
+		304 codes indicating that the pages of the app are loading successfully (do not worry about
+		the red 404 code for /favicon.ico—but if there is a 404 for anything else, something has 
+		gone wrong). Now we will move to the potentially more complicated task of building the app
+		for Android.
+4.	Install Java Development Kit
+	a.	Go to http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html and 
+		download installer (jdk-8u131-windows-x64.exe)
+	b.	Run installer with default options (note installation location—you might need it if 
+		Cordova cannot find it automatically)
+5.	Install Android Studio
+	a.	Go to https://developer.android.com/studio/index.html and download installer (2.3.2)
+	b.	Run installer with default options (note installation locations—you might need it if 
+		Cordova cannot find them automatically)
+6.	Build Android app with Cordova
+	a.	Open up a command line
+	b.	Navigate to the ARMS project directory
+	c.	Run command “cordova run android”
+	d.	Cordova uses two environment variables that store the location of your JDK installation and 
+		your Android SDK installation, JAVA_HOME and ANDROID_HOME respectively. Cordova will try to 
+		set these environment variables itself, but if it is unable to, you will have to set them 
+		manually. The default location for the JDK installation is “C:\Program Files\Java\jdk1.8.0_121”,
+		and the default location of the Android SDK is C:\Users\<username>\AppData\Local\Android\sdk”
+	e.	An APK file will be generated and can be found at 
+		“<project_directory>\platforms\android\build\outputs\apk”
+	f.	You can install this APK to an Android device or run it on an Android emulator
+7.	Clean Cordova directory
+	a.	If you wish to clean the build artifacts from the project directory, open a command line, navigate to the project 			directory, and run “cordova clean”
