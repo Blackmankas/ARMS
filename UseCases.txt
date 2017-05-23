@@ -1,0 +1,19 @@
+Use Cases
+---------
+
+1. Scan Item
+------------
+Touch the large scan button to open the barcode scanner. Scan/enter the barcode
+28400070560. You will be shown product information about Doritos. This information
+can be modified and submitted back into the database. This is useful for when an
+item is purchased and its quantity needs to be decreased, or for when additional
+stock is added and the quantity needs to be increased, or the product location in
+the store is to be changed. When you are done making changes here, touch the home
+icon in the top right corner to return to the index page.
+
+2. Search for Item
+------------------
+Enter a product name into the search bar and touch the search button. Use
+"doritos". As with the "Scan item" use case, product information will be displayed,
+and can be modified and resubmitted to the database. Again, touch the home button
+in the top right to return to the index page.
